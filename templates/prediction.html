@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <!-- Incluyendo Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <div class="w-full max-w-lg p-8 space-y-6 bg-white rounded-xl shadow-lg text-center">
+        
+        <h1 class="text-3xl font-bold text-gray-800">Prediction Result</h1>
+        
+        <!-- Contenedor para la información proporcionada -->
+        <div class="p-6 bg-gray-50 border border-gray-200 rounded-lg text-left">
+            <h2 class="text-xl font-semibold text-gray-700 mb-4">Information provided:</h2>
+            <ul class="space-y-2 text-gray-600">
+                <li class="flex justify-between"><span>Sepal Length:</span> <span class="font-medium text-gray-800">{{ session['sep_len'] }} cm</span></li>
+                <li class="flex justify-between"><span>Sepal Width:</span> <span class="font-medium text-gray-800">{{ session['sep_wid'] }} cm</span></li>
+                <li class="flex justify-between"><span>Petal Length:</span> <span class="font-medium text-gray-800">{{ session['pet_len'] }} cm</span></li>
+                <li class="flex justify-between"><span>Petal Width:</span> <span class="font-medium text-gray-800">{{ session['pet_wid'] }} cm</span></li>
+            </ul>
+        </div>
+
+        <!-- Contenedor para el resultado de la predicción -->
+        <div class="p-6 bg-blue-50 border border-blue-200 rounded-lg">
+            <h2 class="text-xl font-semibold text-gray-700">The predicted flower class is:</h2>
+            <p class="mt-2 text-4xl font-bold text-blue-600 capitalize">{{ results }}</p>
+        </div>
+
+        <!-- Botón para volver (CORREGIDO) -->
+        <a href="{{ url_for('index') }}" class="inline-block w-full px-4 py-2 mt-4 font-semibold text-white bg-gray-600 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors duration-300">
+            Make another prediction
+        </a>
+    </div>
+
+</body>
+</html>
